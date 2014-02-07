@@ -21,6 +21,10 @@
 		BF582B1918A59C12009C702E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF582AFB18A59C12009C702E /* UIKit.framework */; };
 		BF582B2118A59C12009C702E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF582B1F18A59C12009C702E /* InfoPlist.strings */; };
 		BF582B2318A59C12009C702E /* TreazureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF582B2218A59C12009C702E /* TreazureTests.m */; };
+		BF582B2E18A59C41009C702E /* AWSRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF582B2C18A59C41009C702E /* AWSRuntime.framework */; };
+		BF582B2F18A59C41009C702E /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF582B2D18A59C41009C702E /* AWSS3.framework */; };
+		BF582B3218A59D40009C702E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = BF582B3118A59D40009C702E /* Constants.m */; };
+		BF582B3518A5A16B009C702E /* S3UploaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF582B3418A5A16B009C702E /* S3UploaderViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,12 @@
 		BF582B1E18A59C12009C702E /* TreazureTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TreazureTests-Info.plist"; sourceTree = "<group>"; };
 		BF582B2018A59C12009C702E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF582B2218A59C12009C702E /* TreazureTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TreazureTests.m; sourceTree = "<group>"; };
+		BF582B2C18A59C41009C702E /* AWSRuntime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSRuntime.framework; sourceTree = "<group>"; };
+		BF582B2D18A59C41009C702E /* AWSS3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSS3.framework; sourceTree = "<group>"; };
+		BF582B3018A59D40009C702E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		BF582B3118A59D40009C702E /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		BF582B3318A5A16B009C702E /* S3UploaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3UploaderViewController.h; sourceTree = "<group>"; };
+		BF582B3418A5A16B009C702E /* S3UploaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3UploaderViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF582B2E18A59C41009C702E /* AWSRuntime.framework in Frameworks */,
+				BF582B2F18A59C41009C702E /* AWSS3.framework in Frameworks */,
 				BF582AFA18A59C12009C702E /* CoreGraphics.framework in Frameworks */,
 				BF582AFC18A59C12009C702E /* UIKit.framework in Frameworks */,
 				BF582AF818A59C12009C702E /* Foundation.framework in Frameworks */,
@@ -101,6 +113,8 @@
 		BF582AF618A59C12009C702E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF582B2C18A59C41009C702E /* AWSRuntime.framework */,
+				BF582B2D18A59C41009C702E /* AWSS3.framework */,
 				BF582AF718A59C12009C702E /* Foundation.framework */,
 				BF582AF918A59C12009C702E /* CoreGraphics.framework */,
 				BF582AFB18A59C12009C702E /* UIKit.framework */,
@@ -115,6 +129,10 @@
 				BF582B0618A59C12009C702E /* SoldAppDelegate.h */,
 				BF582B0718A59C12009C702E /* SoldAppDelegate.m */,
 				BF582B0918A59C12009C702E /* Main.storyboard */,
+				BF582B3318A5A16B009C702E /* S3UploaderViewController.h */,
+				BF582B3418A5A16B009C702E /* S3UploaderViewController.m */,
+				BF582B3018A59D40009C702E /* Constants.h */,
+				BF582B3118A59D40009C702E /* Constants.m */,
 				BF582B0C18A59C12009C702E /* SoldViewController.h */,
 				BF582B0D18A59C12009C702E /* SoldViewController.m */,
 				BF582B0F18A59C12009C702E /* Images.xcassets */,
@@ -250,9 +268,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF582B3518A5A16B009C702E /* S3UploaderViewController.m in Sources */,
 				BF582B0E18A59C12009C702E /* SoldViewController.m in Sources */,
 				BF582B0818A59C12009C702E /* SoldAppDelegate.m in Sources */,
 				BF582B0418A59C12009C702E /* main.m in Sources */,
+				BF582B3218A59D40009C702E /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +399,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/shervinater/Development/iOS/Treazure,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Treazure/Treazure-Prefix.pch";
 				INFOPLIST_FILE = "Treazure/Treazure-Info.plist";
@@ -392,6 +416,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/shervinater/Development/iOS/Treazure,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Treazure/Treazure-Prefix.pch";
 				INFOPLIST_FILE = "Treazure/Treazure-Info.plist";
