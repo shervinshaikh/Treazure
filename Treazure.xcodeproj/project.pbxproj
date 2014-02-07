@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF582AF818A59C12009C702E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF582AF718A59C12009C702E /* Foundation.framework */; };
+		BF582AFA18A59C12009C702E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF582AF918A59C12009C702E /* CoreGraphics.framework */; };
+		BF582AFC18A59C12009C702E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF582AFB18A59C12009C702E /* UIKit.framework */; };
+		BF582B0218A59C12009C702E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF582B0018A59C12009C702E /* InfoPlist.strings */; };
+		BF582B0418A59C12009C702E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF582B0318A59C12009C702E /* main.m */; };
+		BF582B0818A59C12009C702E /* SoldAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF582B0718A59C12009C702E /* SoldAppDelegate.m */; };
+		BF582B0B18A59C12009C702E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF582B0918A59C12009C702E /* Main.storyboard */; };
+		BF582B0E18A59C12009C702E /* SoldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF582B0D18A59C12009C702E /* SoldViewController.m */; };
+		BF582B1018A59C12009C702E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF582B0F18A59C12009C702E /* Images.xcassets */; };
+		BF582B1718A59C12009C702E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF582B1618A59C12009C702E /* XCTest.framework */; };
+		BF582B1818A59C12009C702E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF582AF718A59C12009C702E /* Foundation.framework */; };
+		BF582B1918A59C12009C702E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF582AFB18A59C12009C702E /* UIKit.framework */; };
+		BF582B2118A59C12009C702E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF582B1F18A59C12009C702E /* InfoPlist.strings */; };
+		BF582B2318A59C12009C702E /* TreazureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF582B2218A59C12009C702E /* TreazureTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF582B1A18A59C12009C702E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF582AEC18A59C12009C702E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF582AF318A59C12009C702E;
+			remoteInfo = Treazure;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BF582AF418A59C12009C702E /* Treazure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Treazure.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF582AF718A59C12009C702E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BF582AF918A59C12009C702E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BF582AFB18A59C12009C702E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BF582AFF18A59C12009C702E /* Treazure-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Treazure-Info.plist"; sourceTree = "<group>"; };
+		BF582B0118A59C12009C702E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BF582B0318A59C12009C702E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BF582B0518A59C12009C702E /* Treazure-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Treazure-Prefix.pch"; sourceTree = "<group>"; };
+		BF582B0618A59C12009C702E /* SoldAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoldAppDelegate.h; sourceTree = "<group>"; };
+		BF582B0718A59C12009C702E /* SoldAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoldAppDelegate.m; sourceTree = "<group>"; };
+		BF582B0A18A59C12009C702E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BF582B0C18A59C12009C702E /* SoldViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoldViewController.h; sourceTree = "<group>"; };
+		BF582B0D18A59C12009C702E /* SoldViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoldViewController.m; sourceTree = "<group>"; };
+		BF582B0F18A59C12009C702E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BF582B1518A59C12009C702E /* TreazureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TreazureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF582B1618A59C12009C702E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		BF582B1E18A59C12009C702E /* TreazureTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TreazureTests-Info.plist"; sourceTree = "<group>"; };
+		BF582B2018A59C12009C702E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BF582B2218A59C12009C702E /* TreazureTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TreazureTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF582AF118A59C12009C702E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF582AFA18A59C12009C702E /* CoreGraphics.framework in Frameworks */,
+				BF582AFC18A59C12009C702E /* UIKit.framework in Frameworks */,
+				BF582AF818A59C12009C702E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF582B1218A59C12009C702E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF582B1718A59C12009C702E /* XCTest.framework in Frameworks */,
+				BF582B1918A59C12009C702E /* UIKit.framework in Frameworks */,
+				BF582B1818A59C12009C702E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF582AEB18A59C12009C702E = {
+			isa = PBXGroup;
+			children = (
+				BF582AFD18A59C12009C702E /* Treazure */,
+				BF582B1C18A59C12009C702E /* TreazureTests */,
+				BF582AF618A59C12009C702E /* Frameworks */,
+				BF582AF518A59C12009C702E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BF582AF518A59C12009C702E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF582AF418A59C12009C702E /* Treazure.app */,
+				BF582B1518A59C12009C702E /* TreazureTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF582AF618A59C12009C702E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF582AF718A59C12009C702E /* Foundation.framework */,
+				BF582AF918A59C12009C702E /* CoreGraphics.framework */,
+				BF582AFB18A59C12009C702E /* UIKit.framework */,
+				BF582B1618A59C12009C702E /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF582AFD18A59C12009C702E /* Treazure */ = {
+			isa = PBXGroup;
+			children = (
+				BF582B0618A59C12009C702E /* SoldAppDelegate.h */,
+				BF582B0718A59C12009C702E /* SoldAppDelegate.m */,
+				BF582B0918A59C12009C702E /* Main.storyboard */,
+				BF582B0C18A59C12009C702E /* SoldViewController.h */,
+				BF582B0D18A59C12009C702E /* SoldViewController.m */,
+				BF582B0F18A59C12009C702E /* Images.xcassets */,
+				BF582AFE18A59C12009C702E /* Supporting Files */,
+			);
+			path = Treazure;
+			sourceTree = "<group>";
+		};
+		BF582AFE18A59C12009C702E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF582AFF18A59C12009C702E /* Treazure-Info.plist */,
+				BF582B0018A59C12009C702E /* InfoPlist.strings */,
+				BF582B0318A59C12009C702E /* main.m */,
+				BF582B0518A59C12009C702E /* Treazure-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF582B1C18A59C12009C702E /* TreazureTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF582B2218A59C12009C702E /* TreazureTests.m */,
+				BF582B1D18A59C12009C702E /* Supporting Files */,
+			);
+			path = TreazureTests;
+			sourceTree = "<group>";
+		};
+		BF582B1D18A59C12009C702E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF582B1E18A59C12009C702E /* TreazureTests-Info.plist */,
+				BF582B1F18A59C12009C702E /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF582AF318A59C12009C702E /* Treazure */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF582B2618A59C12009C702E /* Build configuration list for PBXNativeTarget "Treazure" */;
+			buildPhases = (
+				BF582AF018A59C12009C702E /* Sources */,
+				BF582AF118A59C12009C702E /* Frameworks */,
+				BF582AF218A59C12009C702E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Treazure;
+			productName = Treazure;
+			productReference = BF582AF418A59C12009C702E /* Treazure.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF582B1418A59C12009C702E /* TreazureTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF582B2918A59C12009C702E /* Build configuration list for PBXNativeTarget "TreazureTests" */;
+			buildPhases = (
+				BF582B1118A59C12009C702E /* Sources */,
+				BF582B1218A59C12009C702E /* Frameworks */,
+				BF582B1318A59C12009C702E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF582B1B18A59C12009C702E /* PBXTargetDependency */,
+			);
+			name = TreazureTests;
+			productName = TreazureTests;
+			productReference = BF582B1518A59C12009C702E /* TreazureTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF582AEC18A59C12009C702E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Sold;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Treazure;
+				TargetAttributes = {
+					BF582B1418A59C12009C702E = {
+						TestTargetID = BF582AF318A59C12009C702E;
+					};
+				};
+			};
+			buildConfigurationList = BF582AEF18A59C12009C702E /* Build configuration list for PBXProject "Treazure" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF582AEB18A59C12009C702E;
+			productRefGroup = BF582AF518A59C12009C702E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF582AF318A59C12009C702E /* Treazure */,
+				BF582B1418A59C12009C702E /* TreazureTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF582AF218A59C12009C702E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF582B1018A59C12009C702E /* Images.xcassets in Resources */,
+				BF582B0218A59C12009C702E /* InfoPlist.strings in Resources */,
+				BF582B0B18A59C12009C702E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF582B1318A59C12009C702E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF582B2118A59C12009C702E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF582AF018A59C12009C702E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF582B0E18A59C12009C702E /* SoldViewController.m in Sources */,
+				BF582B0818A59C12009C702E /* SoldAppDelegate.m in Sources */,
+				BF582B0418A59C12009C702E /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF582B1118A59C12009C702E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF582B2318A59C12009C702E /* TreazureTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF582B1B18A59C12009C702E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF582AF318A59C12009C702E /* Treazure */;
+			targetProxy = BF582B1A18A59C12009C702E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BF582B0018A59C12009C702E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF582B0118A59C12009C702E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BF582B0918A59C12009C702E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF582B0A18A59C12009C702E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BF582B1F18A59C12009C702E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF582B2018A59C12009C702E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF582B2418A59C12009C702E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BF582B2518A59C12009C702E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF582B2718A59C12009C702E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Treazure/Treazure-Prefix.pch";
+				INFOPLIST_FILE = "Treazure/Treazure-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BF582B2818A59C12009C702E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Treazure/Treazure-Prefix.pch";
+				INFOPLIST_FILE = "Treazure/Treazure-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		BF582B2A18A59C12009C702E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Treazure.app/Treazure";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Treazure/Treazure-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TreazureTests/TreazureTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		BF582B2B18A59C12009C702E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Treazure.app/Treazure";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Treazure/Treazure-Prefix.pch";
+				INFOPLIST_FILE = "TreazureTests/TreazureTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF582AEF18A59C12009C702E /* Build configuration list for PBXProject "Treazure" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF582B2418A59C12009C702E /* Debug */,
+				BF582B2518A59C12009C702E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF582B2618A59C12009C702E /* Build configuration list for PBXNativeTarget "Treazure" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF582B2718A59C12009C702E /* Debug */,
+				BF582B2818A59C12009C702E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BF582B2918A59C12009C702E /* Build configuration list for PBXNativeTarget "TreazureTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF582B2A18A59C12009C702E /* Debug */,
+				BF582B2B18A59C12009C702E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BF582AEC18A59C12009C702E /* Project object */;
+}
