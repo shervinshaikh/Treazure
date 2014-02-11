@@ -33,7 +33,7 @@
     
     self.title = @"Uploader";
     
-    if([ACCESS_KEY_ID isEqualToString:@"AKIAJYE4BJNQIC2BHQCA"]
+    if([ACCESS_KEY_ID isEqualToString:@"AKIAIM7BLTO7XEILT4NA"]
        && self.s3 == nil)
     {
         // Initial the S3 Client.
@@ -50,10 +50,62 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
+- (IBAction)uploadPhoto:(id)sender {
+    UIActionSheet *photoSourcePicker = [[UIActionSheet alloc] initWithTitle:nil
+                                                                   delegate:self cancelButtonTitle:@"Cancel"
+                                                     destructiveButtonTitle:nil
+                                                          otherButtonTitles:	@"Take Photo",
+                                        @"Choose from Library",
+                                        nil,
+                                        nil];
+    
+    [photoSourcePicker showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)modalView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+	switch (buttonIndex)
+	{
+		case 0:
+		{
+            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+                UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+                imagePicker.sourceType =  UIImagePickerControllerSourceTypeCamera;
+                imagePicker.delegate = self;
+                imagePicker.cameraFlashMode = UIImagePickerControllerCameraFlashModeOff;
+                imagePicker.allowsEditing = NO;
+                [self presentViewController:imagePicker animated:YES completion:nil];
+            }
+            else {
+                UIAlertView *alert;
+                alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                   message:@"This device doesn't have a camera."
+                                                  delegate:self cancelButtonTitle:@"Ok"
+                                         otherButtonTitles:nil];
+                [alert show];
+            }
+			break;
+		}
+		case 1:
+		{
+            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+                UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+                imagePicker.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
+                imagePicker.delegate = self;
+                imagePicker.allowsEditing = NO;
+                [self presentViewController:imagePicker animated:YES completion:nil];
+            }
+            else {
+                UIAlertView *alert;
+                alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                   message:@"This device doesn't support photo libraries."
+                                                  delegate:self cancelButtonTitle:@"Ok"
+                                         otherButtonTitles:nil];
+                [alert show];
+            }
+			break;
+		}
+	}
 }
 
 #pragma mark - Grand Central Dispatch
