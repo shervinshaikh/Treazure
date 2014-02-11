@@ -15,11 +15,21 @@ typedef enum {
     BackgroundThread
 } UploadType;
 
+typedef enum {
+    first,
+    second,
+    third
+} ImageNumber;
+
 @interface S3UploaderViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate, AmazonServiceRequestDelegate> {
     UploadType _uploadType;
+    ImageNumber _imageNumber;
 }
 
 @property (nonatomic, retain) AmazonS3Client *s3;
+@property (nonatomic, weak) IBOutlet UIImageView *firstPhoto;
+@property (nonatomic, weak) IBOutlet UIImageView *secondPhoto;
+@property (nonatomic, weak) IBOutlet UIImageView *thirdPhoto;
 
 -(IBAction)uploadPhoto:(id)sender;
 

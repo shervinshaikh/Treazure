@@ -33,12 +33,13 @@
     
     self.title = @"Uploader";
     
-    if([ACCESS_KEY_ID isEqualToString:@"AKIAIM7BLTO7XEILT4NA"]
+    // Initial the S3 Client.
+    self.s3 = [[AmazonS3Client alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
+    self.s3.endpoint = [AmazonEndpoints s3Endpoint:US_WEST_2];
+    
+    if(![ACCESS_KEY_ID isEqualToString:@"AKIAIM7BLTO7XEILT4NA"]
        && self.s3 == nil)
     {
-        // Initial the S3 Client.
-        self.s3 = [[AmazonS3Client alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
-        self.s3.endpoint = [AmazonEndpoints s3Endpoint:US_WEST_2];
         
         // Create the picture bucket.
         S3CreateBucketRequest *createBucketRequest = [[S3CreateBucketRequest alloc] initWithName:[Constants pictureBucket] andRegion:[S3Region USWest2]];
@@ -239,7 +240,7 @@
         S3GetPreSignedURLRequest *gpsur = [[S3GetPreSignedURLRequest alloc] init];
         gpsur.key                     = PICTURE_NAME;
         gpsur.bucket                  = [Constants pictureBucket];
-        gpsur.expires                 = [NSDate dateWithTimeIntervalSinceNow:(NSTimeInterval) 3600]; // Added an hour's worth of seconds to the current time.
+        gpsur.expires                 = [NSDate dateWithTimeIntervalSinceNow:(NSTimeInterval) 172800]; // Added an hour's worth of seconds to the current time.
         gpsur.responseHeaderOverrides = override;
         
         // Get the URL
@@ -274,6 +275,7 @@
 {
     // Get the selected image.
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    // UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     
     // Convert the image to JPEG data.
     NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
@@ -289,6 +291,29 @@
     else if(_uploadType == BackgroundThread)
     {
         [self processBackgroundThreadUpload:imageData];
+    }
+    
+    // Display the image in a view & hold its value in a global property for future reference
+    // Then when you click background upload, it runs a background upload on all three images
+    // -- Or it uploads in the background for each image as it is selected
+    //  Show in browser instead sends 3 links somewhere: email to someone? add to firebase? display in alert?
+    
+    // FUTURE:
+    // Enter in description on same page as image upload, have submit to upload images & sync firebase
+    
+    // Login and bucket creation?
+    // Information we need: First/Last Name, Phone Number, Email
+    if(_imageNumber == first)
+    {
+        self.firstPhoto.image = image;
+    }
+    else if(_imageNumber == second)
+    {
+        self.secondPhoto.image = image;
+    }
+    else if(_imageNumber == third)
+    {
+        self.thirdPhoto.image = image;
     }
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -312,6 +337,32 @@
     
     [self presentViewController:imagePicker animated:YES completion:nil];
 }
+
+- (IBAction)selectFirstPhoto:(id)sender
+{
+    [self showImagePicker2:first];
+}
+
+- (IBAction)selectSecondPhoto:(id)sender
+{
+    [self showImagePicker2:second];
+}
+
+- (IBAction)selectThirdPhoto:(id)sender
+{
+    [self showImagePicker2:third];
+}
+
+- (void)showImagePicker2:(ImageNumber)imageNumber
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    
+    _imageNumber = imageNumber;
+    
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
 
 - (void)showAlertMessage:(NSString *)message withTitle:(NSString *)title
 {
