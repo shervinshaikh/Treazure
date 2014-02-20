@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Firebase/Firebase.h>
+#import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
 
 @interface SoldViewController : UIViewController
+
+@property (nonatomic, retain) Firebase *ref;
+@property (nonatomic, retain) FirebaseSimpleLogin* authClient;
 
 @end
