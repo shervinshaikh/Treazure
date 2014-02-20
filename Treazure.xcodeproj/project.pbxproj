@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF4E00EE18B5D62600E7081D /* FirebaseSimpleLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF4E00ED18B5D62600E7081D /* FirebaseSimpleLogin.framework */; };
+		BF4E00F018B5D65900E7081D /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF4E00EF18B5D65800E7081D /* Accounts.framework */; };
+		BF4E00F218B5D66000E7081D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF4E00F118B5D66000E7081D /* Social.framework */; };
 		BF582AF818A59C12009C702E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF582AF718A59C12009C702E /* Foundation.framework */; };
 		BF582AFA18A59C12009C702E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF582AF918A59C12009C702E /* CoreGraphics.framework */; };
 		BF582AFC18A59C12009C702E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF582AFB18A59C12009C702E /* UIKit.framework */; };
@@ -25,6 +28,12 @@
 		BF582B2F18A59C41009C702E /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF582B2D18A59C41009C702E /* AWSS3.framework */; };
 		BF582B3218A59D40009C702E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = BF582B3118A59D40009C702E /* Constants.m */; };
 		BF582B3518A5A16B009C702E /* S3UploaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF582B3418A5A16B009C702E /* S3UploaderViewController.m */; };
+		BFAB74A118B5DB99006CAA13 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFAB74A018B5DB99006CAA13 /* Firebase.framework */; };
+		BFAB74A318B5DBC6006CAA13 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFAB74A218B5DBC6006CAA13 /* Security.framework */; };
+		BFAB74A518B5DBCE006CAA13 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFAB74A418B5DBCE006CAA13 /* SystemConfiguration.framework */; };
+		BFAB74A718B5DBD4006CAA13 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFAB74A618B5DBD4006CAA13 /* CFNetwork.framework */; };
+		BFAB74A918B5DBDE006CAA13 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BFAB74A818B5DBDE006CAA13 /* libc++.dylib */; };
+		BFAB74AB18B5DBE6006CAA13 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BFAB74AA18B5DBE6006CAA13 /* libicucore.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF4E00ED18B5D62600E7081D /* FirebaseSimpleLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseSimpleLogin.framework; sourceTree = "<group>"; };
+		BF4E00EF18B5D65800E7081D /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		BF4E00F118B5D66000E7081D /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		BF582AF418A59C12009C702E /* Treazure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Treazure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF582AF718A59C12009C702E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BF582AF918A59C12009C702E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,6 +75,12 @@
 		BF582B3118A59D40009C702E /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		BF582B3318A5A16B009C702E /* S3UploaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S3UploaderViewController.h; sourceTree = "<group>"; };
 		BF582B3418A5A16B009C702E /* S3UploaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S3UploaderViewController.m; sourceTree = "<group>"; };
+		BFAB74A018B5DB99006CAA13 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		BFAB74A218B5DBC6006CAA13 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		BFAB74A418B5DBCE006CAA13 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BFAB74A618B5DBD4006CAA13 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		BFAB74A818B5DBDE006CAA13 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		BFAB74AA18B5DBE6006CAA13 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +88,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFAB74AB18B5DBE6006CAA13 /* libicucore.dylib in Frameworks */,
+				BFAB74A918B5DBDE006CAA13 /* libc++.dylib in Frameworks */,
+				BFAB74A718B5DBD4006CAA13 /* CFNetwork.framework in Frameworks */,
+				BFAB74A518B5DBCE006CAA13 /* SystemConfiguration.framework in Frameworks */,
+				BFAB74A318B5DBC6006CAA13 /* Security.framework in Frameworks */,
+				BFAB74A118B5DB99006CAA13 /* Firebase.framework in Frameworks */,
+				BF4E00F218B5D66000E7081D /* Social.framework in Frameworks */,
+				BF4E00F018B5D65900E7081D /* Accounts.framework in Frameworks */,
+				BF4E00EE18B5D62600E7081D /* FirebaseSimpleLogin.framework in Frameworks */,
 				BF582B2E18A59C41009C702E /* AWSRuntime.framework in Frameworks */,
 				BF582B2F18A59C41009C702E /* AWSS3.framework in Frameworks */,
 				BF582AFA18A59C12009C702E /* CoreGraphics.framework in Frameworks */,
@@ -113,6 +140,15 @@
 		BF582AF618A59C12009C702E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BFAB74AA18B5DBE6006CAA13 /* libicucore.dylib */,
+				BFAB74A818B5DBDE006CAA13 /* libc++.dylib */,
+				BFAB74A618B5DBD4006CAA13 /* CFNetwork.framework */,
+				BFAB74A418B5DBCE006CAA13 /* SystemConfiguration.framework */,
+				BFAB74A218B5DBC6006CAA13 /* Security.framework */,
+				BFAB74A018B5DB99006CAA13 /* Firebase.framework */,
+				BF4E00F118B5D66000E7081D /* Social.framework */,
+				BF4E00EF18B5D65800E7081D /* Accounts.framework */,
+				BF4E00ED18B5D62600E7081D /* FirebaseSimpleLogin.framework */,
 				BF582B2C18A59C41009C702E /* AWSRuntime.framework */,
 				BF582B2D18A59C41009C702E /* AWSS3.framework */,
 				BF582AF718A59C12009C702E /* Foundation.framework */,
@@ -406,6 +442,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Treazure/Treazure-Prefix.pch";
 				INFOPLIST_FILE = "Treazure/Treazure-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -423,6 +460,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Treazure/Treazure-Prefix.pch";
 				INFOPLIST_FILE = "Treazure/Treazure-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -489,6 +527,7 @@
 				BF582B2818A59C12009C702E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BF582B2918A59C12009C702E /* Build configuration list for PBXNativeTarget "TreazureTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +536,7 @@
 				BF582B2B18A59C12009C702E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

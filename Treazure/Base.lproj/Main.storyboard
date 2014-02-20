@@ -81,7 +81,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="uploadPhoto:" destination="M5q-6P-Yly" eventType="touchUpInside" id="Smz-Tc-hUp"/>
+                                    <action selector="selectFirstPhoto:" destination="M5q-6P-Yly" eventType="touchUpInside" id="p7Y-AS-2dF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O37-bS-64S">
@@ -91,7 +91,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="uploadPhoto:" destination="M5q-6P-Yly" eventType="touchUpInside" id="sRX-vb-JDC"/>
+                                    <action selector="selectSecondPhoto:" destination="M5q-6P-Yly" eventType="touchUpInside" id="lMe-Dl-FHb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onp-hK-Vhp">
@@ -101,7 +101,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="uploadPhoto:" destination="M5q-6P-Yly" eventType="touchUpInside" id="uCy-pU-Pax"/>
+                                    <action selector="selectThirdPhoto:" destination="M5q-6P-Yly" eventType="touchUpInside" id="nu0-TO-jsa"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1JV-u6-WeD">
@@ -121,7 +121,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="96f-h8-UDF"/>
                     <connections>
-                        <outlet property="firstPhoto" destination="1JV-u6-WeD" id="BBH-T1-xOx"/>
+                        <outlet property="firstPhoto" destination="1JV-u6-WeD" id="UzK-zR-PcK"/>
                         <outlet property="secondPhoto" destination="Nte-ZN-YKY" id="mXv-J3-P3J"/>
                         <outlet property="thirdPhoto" destination="GqF-eL-huf" id="6le-tf-nbW"/>
                     </connections>

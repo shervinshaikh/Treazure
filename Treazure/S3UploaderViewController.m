@@ -273,25 +273,26 @@
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+    NSLog(@"in the controller");
     // Get the selected image.
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     // UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     
     // Convert the image to JPEG data.
-    NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+//    NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
     
-    if(_uploadType == GrandCentralDispatch)
-    {
-        [self processGrandCentralDispatchUpload:imageData];
-    }
-    else if(_uploadType == Delegate)
-    {
-        [self processDelegateUpload:imageData];
-    }
-    else if(_uploadType == BackgroundThread)
-    {
-        [self processBackgroundThreadUpload:imageData];
-    }
+//    if(_uploadType == GrandCentralDispatch)
+//    {
+//        [self processGrandCentralDispatchUpload:imageData];
+//    }
+//    else if(_uploadType == Delegate)
+//    {
+//        [self processDelegateUpload:imageData];
+//    }
+//    else if(_uploadType == BackgroundThread)
+//    {
+//        [self processBackgroundThreadUpload:imageData];
+//    }
     
     // Display the image in a view & hold its value in a global property for future reference
     // Then when you click background upload, it runs a background upload on all three images
@@ -305,14 +306,17 @@
     // Information we need: First/Last Name, Phone Number, Email
     if(_imageNumber == first)
     {
+        NSLog(@"first photo set imageview");
         self.firstPhoto.image = image;
     }
     else if(_imageNumber == second)
     {
+        NSLog(@"second photo set imageview");
         self.secondPhoto.image = image;
     }
     else if(_imageNumber == third)
     {
+        NSLog(@"third photo set imageview");
         self.thirdPhoto.image = image;
     }
     
@@ -341,16 +345,19 @@
 - (IBAction)selectFirstPhoto:(id)sender
 {
     [self showImagePicker2:first];
+    NSLog(@"FIRST");
 }
 
 - (IBAction)selectSecondPhoto:(id)sender
 {
     [self showImagePicker2:second];
+    NSLog(@"SECOND");
 }
 
 - (IBAction)selectThirdPhoto:(id)sender
 {
     [self showImagePicker2:third];
+    NSLog(@"THIRD");
 }
 
 - (void)showImagePicker2:(ImageNumber)imageNumber

@@ -39,4 +39,8 @@ typedef enum {
 
 -(IBAction)showInBrowser:(id)sender;
 
+-(IBAction)selectFirstPhoto:(id)sender;
+-(IBAction)selectSecondPhoto:(id)sender;
+-(IBAction)selectThirdPhoto:(id)sender;
+
 @end
