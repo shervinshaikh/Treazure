@@ -31,7 +31,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self.view endEditing:YES];
-    [self.submitButtonS setEnabled:NO];
+//    [self.submitButtonS setEnabled:NO];
     
     [self.nameField setDelegate:self];
     [self.phoneNumberField setDelegate:self];
@@ -174,13 +174,13 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if( [self.emailField.text length] != 0 && [self.passwordField.text length] != 0 && [self.phoneNumberField.text length] != 0 && [self.nameField.text length] != 0 && [self.nameField.text length] != 0)
-    {
-        [self.submitButtonS setEnabled:YES];
-    }
-    else {
-        [self.submitButtonS setEnabled:NO];
-    }
+//    if( [self.emailField.text length] != 0 && [self.passwordField.text length] != 0 && [self.phoneNumberField.text length] != 0 && [self.nameField.text length] != 0 && [self.nameField.text length] != 0)
+//    {
+//        [self.submitButtonS setEnabled:YES];
+//    }
+//    else {
+//        [self.submitButtonS setEnabled:NO];
+//    }
     
     _activeField = textField;
     if (textField == self.phoneNumberField) {
