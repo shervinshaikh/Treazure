@@ -26,6 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.iPhoneModels =  [[NSArray alloc] initWithObjects:@"iPhone 5S", @"iPhone 5", @"iPhone 4S", nil];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -34,37 +36,37 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - UIPickerView DataSource
+// returns the number of 'columns' to display.
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    return 1;
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+// returns the # of rows in each component..
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return [self.iPhoneModels count];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+#pragma mark - UIPickerView Delegate
+- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return 30.0;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
+    return [self.iPhoneModels objectAtIndex:row];
 }
+
+//If the user chooses from the pickerview, it calls this function;
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    //Let's print in the console what the user had chosen;
+    NSLog(@"Chosen item: %@", [self.iPhoneModels objectAtIndex:row]);
+}
+
 
 /*
 // Override to support conditional editing of the table view.

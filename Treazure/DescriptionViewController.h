@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DescriptionViewController : UITableViewController
+@interface DescriptionViewController : UITableViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UIPickerView *iPhoneModelPicker;
+@property (strong, nonatomic) IBOutlet NSArray *iPhoneModels;
 
 @end
