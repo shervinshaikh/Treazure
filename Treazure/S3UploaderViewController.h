@@ -22,7 +22,7 @@ typedef enum {
     third
 } ImageNumber;
 
-@interface S3UploaderViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate, AmazonServiceRequestDelegate> {
+@interface S3UploaderViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, AmazonServiceRequestDelegate> {
     UploadType _uploadType;
     ImageNumber _imageNumber;
 }

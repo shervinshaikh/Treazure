@@ -49,6 +49,8 @@
             NSLog(@"Error: %@", createBucketResponse.error);
         }
     }
+    
+    NSLog(@"%@", self.currentUserId);
 }
 
 - (IBAction)uploadPhoto:(id)sender {

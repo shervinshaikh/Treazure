@@ -52,19 +52,20 @@
         } else {
             // There is a logged in user
             self.currentUser = [self.users childByAppendingPath:user.userId];
-            NSLog(@"already logged in user");
-            NSLog(@"%@, %d, %@", user.userId, user.provider, user.email);
+            NSLog(@"User logged in: %@, %d, %@", user.userId, user.provider, user.email);
             self.currentUserId = user.userId;
+            
 #warning go through accessEverything segue here when testing with signup is done
-//            [self performSegueWithIdentifier:@"accessEverything" sender:self];
+            [self performSegueWithIdentifier:@"accessEverything" sender:self];
+
         }
     }];
     
     // Read data and react to changes
-    [self.ref observeEventType:FEventTypeValue
-                     withBlock:^(FDataSnapshot *snapshot) {
-        NSLog(@"%@ -> %@", snapshot.name, snapshot.value);
-    }];
+//    [self.ref observeEventType:FEventTypeValue
+//                     withBlock:^(FDataSnapshot *snapshot) {
+//        NSLog(@"%@ -> %@", snapshot.name, snapshot.value);
+//    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,8 +81,7 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"accessEverything"]){
-        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
-        S3UploaderViewController *controller = (S3UploaderViewController *)navController.topViewController;
+        S3UploaderViewController *controller = segue.destinationViewController;
         controller.currentUserId = self.currentUserId;
     }
 }
@@ -108,11 +108,9 @@
                                   [alert show];
                               } else {
                                   // We created a new user account
-                                  NSLog(@"%@", user);
                                   
                                   // Write data to Firebase
                                   self.currentUser = [self.users childByAppendingPath:user.userId];
-                                  NSLog(@"%@, %@, %@, %@", user.email, user.authToken,self.nameField.text,self.phoneNumberField.text);
                                   NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:user.email, @"Email", self.nameField.text, @"Name", self.phoneNumberField.text, @"PhoneNumber", nil];
                                   NSLog(@"%@", dic);
                                   [self.currentUser setValue:dic];

@@ -10,7 +10,7 @@
 #import <Firebase/Firebase.h>
 #import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
 
-@interface SoldViewController : UITableViewController <UITextFieldDelegate>
+@interface SoldViewController : UITableViewController <UINavigationControllerDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UITextField *password;
