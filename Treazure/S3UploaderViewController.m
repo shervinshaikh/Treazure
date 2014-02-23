@@ -49,20 +49,9 @@
             NSLog(@"Error: %@", createBucketResponse.error);
         }
     }
-    
+    self.currentUser = [[Firebase alloc] initWithUrl: [@"https://joda.firebaseio.com/users/" stringByAppendingString:self.currentUserId]];
+    NSLog(@"%@", self.currentUser);
     NSLog(@"%@", self.currentUserId);
-}
-
-- (IBAction)uploadPhoto:(id)sender {
-    UIActionSheet *photoSourcePicker = [[UIActionSheet alloc] initWithTitle:nil
-                                                                   delegate:self cancelButtonTitle:@"Cancel"
-                                                     destructiveButtonTitle:nil
-                                                          otherButtonTitles:	@"Take Photo",
-                                        @"Choose from Library",
-                                        nil,
-                                        nil];
-    
-    [photoSourcePicker showInView:self.view];
 }
 
 - (void)actionSheet:(UIActionSheet *)modalView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -334,42 +323,33 @@
 
 #pragma mark - Helper Methods
 
-- (void)showImagePicker:(UploadType)uploadType
-{
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-    imagePicker.delegate = self;
-    
-    _uploadType = uploadType;
-    
-    [self presentViewController:imagePicker animated:YES completion:nil];
-}
-
 - (IBAction)selectFirstPhoto:(id)sender
 {
-    [self showImagePicker2:first];
-    NSLog(@"FIRST");
+    [self showImagePicker:first];
 }
 
 - (IBAction)selectSecondPhoto:(id)sender
 {
-    [self showImagePicker2:second];
-    NSLog(@"SECOND");
+    [self showImagePicker:second];
 }
 
 - (IBAction)selectThirdPhoto:(id)sender
 {
-    [self showImagePicker2:third];
-    NSLog(@"THIRD");
+    [self showImagePicker:third];
 }
 
-- (void)showImagePicker2:(ImageNumber)imageNumber
+- (void)showImagePicker:(ImageNumber)imageNumber
 {
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-    imagePicker.delegate = self;
-    
     _imageNumber = imageNumber;
+    UIActionSheet *photoSourcePicker = [[UIActionSheet alloc] initWithTitle:nil
+                                                                   delegate:self cancelButtonTitle:@"Cancel"
+                                                     destructiveButtonTitle:nil
+                                                          otherButtonTitles:@"Take Photo",
+                                        @"Choose from Library",
+                                        nil,
+                                        nil];
     
-    [self presentViewController:imagePicker animated:YES completion:nil];
+    [photoSourcePicker showInView:self.view];
 }
 
 

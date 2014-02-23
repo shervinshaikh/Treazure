@@ -34,6 +34,7 @@
 		BFAB74A718B5DBD4006CAA13 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFAB74A618B5DBD4006CAA13 /* CFNetwork.framework */; };
 		BFAB74A918B5DBDE006CAA13 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BFAB74A818B5DBDE006CAA13 /* libc++.dylib */; };
 		BFAB74AB18B5DBE6006CAA13 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BFAB74AA18B5DBE6006CAA13 /* libicucore.dylib */; };
+		BFE4924918B9C38600CE4721 /* DescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE4924818B9C38600CE4721 /* DescriptionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		BFAB74A618B5DBD4006CAA13 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		BFAB74A818B5DBDE006CAA13 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		BFAB74AA18B5DBE6006CAA13 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		BFE4924718B9C38600CE4721 /* DescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescriptionViewController.h; sourceTree = "<group>"; };
+		BFE4924818B9C38600CE4721 /* DescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescriptionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +168,8 @@
 				BF582B0618A59C12009C702E /* SoldAppDelegate.h */,
 				BF582B0718A59C12009C702E /* SoldAppDelegate.m */,
 				BF582B0918A59C12009C702E /* Main.storyboard */,
+				BFE4924718B9C38600CE4721 /* DescriptionViewController.h */,
+				BFE4924818B9C38600CE4721 /* DescriptionViewController.m */,
 				BF582B3318A5A16B009C702E /* S3UploaderViewController.h */,
 				BF582B3418A5A16B009C702E /* S3UploaderViewController.m */,
 				BF582B3018A59D40009C702E /* Constants.h */,
@@ -309,6 +314,7 @@
 				BF582B0818A59C12009C702E /* SoldAppDelegate.m in Sources */,
 				BF582B0418A59C12009C702E /* main.m in Sources */,
 				BF582B3218A59D40009C702E /* Constants.m in Sources */,
+				BFE4924918B9C38600CE4721 /* DescriptionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
