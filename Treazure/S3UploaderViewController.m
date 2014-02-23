@@ -11,6 +11,10 @@
 
 #import <AWSRuntime/AWSRuntime.h>
 
+#import <UIKit/UIKit.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+
+
 @interface S3UploaderViewController ()
 
 @end
@@ -69,15 +73,20 @@
 	{
 		case 0:
 		{
-            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-                UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-                imagePicker.sourceType =  UIImagePickerControllerSourceTypeCamera;
+            if ([UIImagePickerController isSourceTypeAvailable:
+                 UIImagePickerControllerSourceTypeCamera])
+            {
+                UIImagePickerController *imagePicker =
+                [[UIImagePickerController alloc] init];
                 imagePicker.delegate = self;
-                imagePicker.cameraFlashMode = UIImagePickerControllerCameraFlashModeOff;
+                imagePicker.sourceType =
+                UIImagePickerControllerSourceTypeCamera;
+                imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
                 imagePicker.allowsEditing = NO;
-                [self presentViewController:imagePicker animated:YES completion:nil];
-            }
-            else {
+                [self presentViewController:imagePicker
+                                   animated:YES completion:nil];
+                _newMedia = YES;
+            }            else {
                 UIAlertView *alert;
                 alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                    message:@"This device doesn't have a camera."
@@ -276,34 +285,24 @@
     NSLog(@"in the controller");
     // Get the selected image.
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    // UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     
-    // Convert the image to JPEG data.
-//    NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
     
-//    if(_uploadType == GrandCentralDispatch)
-//    {
-//        [self processGrandCentralDispatchUpload:imageData];
-//    }
-//    else if(_uploadType == Delegate)
-//    {
-//        [self processDelegateUpload:imageData];
-//    }
-//    else if(_uploadType == BackgroundThread)
-//    {
-//        [self processBackgroundThreadUpload:imageData];
-//    }
     
-    // Display the image in a view & hold its value in a global property for future reference
-    // Then when you click background upload, it runs a background upload on all three images
-    // -- Or it uploads in the background for each image as it is selected
-    //  Show in browser instead sends 3 links somewhere: email to someone? add to firebase? display in alert?
+    NSString *mediaType = info[UIImagePickerControllerMediaType];
     
-    // FUTURE:
-    // Enter in description on same page as image upload, have submit to upload images & sync firebase
+    [self dismissViewControllerAnimated:YES completion:nil];
     
-    // Login and bucket creation?
-    // Information we need: First/Last Name, Phone Number, Email
+    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
+        UIImage *image = info[UIImagePickerControllerOriginalImage];
+        
+        _imageView.image = image;
+        if (_newMedia)
+            UIImageWriteToSavedPhotosAlbum(image,
+                                           self,
+                                           @selector(image:finishedSavingWithError:contextInfo:),
+                                           nil);
+    }
+
     if(_imageNumber == first)
     {
         NSLog(@"first photo set imageview");
@@ -323,6 +322,21 @@
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)image:(UIImage *)image
+finishedSavingWithError:(NSError *)error
+ contextInfo:(void *)contextInfo
+{
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Save failed"
+                              message: @"Failed to save image"
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker

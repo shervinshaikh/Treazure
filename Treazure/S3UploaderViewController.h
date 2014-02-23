@@ -27,6 +27,9 @@ typedef enum {
     ImageNumber _imageNumber;
 }
 
+@property BOOL newMedia;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+
 @property (nonatomic, retain) AmazonS3Client *s3;
 @property (nonatomic, weak) IBOutlet UIImageView *firstPhoto;
 @property (nonatomic, weak) IBOutlet UIImageView *secondPhoto;
@@ -34,6 +37,9 @@ typedef enum {
 
 @property (nonatomic, weak) NSString *currentUserId;
 @property (nonatomic, retain) Firebase *currentUser;
+
+- (IBAction)useCamera:(id)sender;
+- (IBAction)useCameraRoll:(id)sender;
 
 -(IBAction)uploadPhoto:(id)sender;
 
