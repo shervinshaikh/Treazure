@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *submitButtonS;
 
 
+@property (weak, nonatomic) NSString *currentUserId;
 @property (nonatomic, retain) Firebase *ref;
 @property (nonatomic, retain) Firebase *users;
 @property (nonatomic, retain) Firebase *currentUser;

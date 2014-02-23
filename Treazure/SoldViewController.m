@@ -7,6 +7,7 @@
 //
 
 #import "SoldViewController.h"
+#import "S3UploaderViewController.h"
 
 @interface SoldViewController ()
 
@@ -53,7 +54,9 @@
             self.currentUser = [self.users childByAppendingPath:user.userId];
             NSLog(@"already logged in user");
             NSLog(@"%@, %d, %@", user.userId, user.provider, user.email);
-            
+            self.currentUserId = user.userId;
+#warning go through accessEverything segue here when testing with signup is done
+//            [self performSegueWithIdentifier:@"accessEverything" sender:self];
         }
     }];
     
@@ -75,20 +78,21 @@
     [self.view endEditing:YES];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"accessEverything"]){
+        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+        S3UploaderViewController *controller = (S3UploaderViewController *)navController.topViewController;
+        controller.currentUserId = self.currentUserId;
+    }
+}
+
 -(IBAction)signUpUser:(id)sender
 {
     [self.emailField resignFirstResponder];
     [self.passwordField resignFirstResponder];
     
-    NSLog(@"%lu", (unsigned long)[self.emailField.text length]);
-    NSLog(@"%lu", (unsigned long)[self.passwordField.text length]);
-
-    
     if([self.emailField.text length] > 0 && [self.passwordField.text length] > 0 && [self.phoneNumberField.text length] > 0 )
     {
-        NSLog(@"%@", self.emailField.text);
-        NSLog(@"%@", self.passwordField.text);
-        
         [self.authClient createUserWithEmail:self.emailField.text
                                     password:self.passwordField.text
                           andCompletionBlock:^(NSError* error, FAUser* user) {
@@ -104,10 +108,14 @@
                                   [alert show];
                               } else {
                                   // We created a new user account
+                                  NSLog(@"%@", user);
                                   
                                   // Write data to Firebase
                                   self.currentUser = [self.users childByAppendingPath:user.userId];
-                                  [self.currentUser setValue:@{@"email":user.email, @"authToken":user.authToken, @"firstName":@"Shervin", @"lastName":@"Shaikh", @"phoneNumber":@9494194942}];
+                                  NSLog(@"%@, %@, %@, %@", user.email, user.authToken,self.nameField.text,self.phoneNumberField.text);
+                                  NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:user.email, @"Email", self.nameField.text, @"Name", self.phoneNumberField.text, @"PhoneNumber", nil];
+                                  NSLog(@"%@", dic);
+                                  [self.currentUser setValue:dic];
                                   
                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sucessful!"
                                                                                   message:@"You have created an account sucessfully!"

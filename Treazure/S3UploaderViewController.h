@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AWSS3/AWSS3.h>
+#import <Firebase/Firebase.h>
 
 typedef enum {
     GrandCentralDispatch,
@@ -30,6 +31,9 @@ typedef enum {
 @property (nonatomic, weak) IBOutlet UIImageView *firstPhoto;
 @property (nonatomic, weak) IBOutlet UIImageView *secondPhoto;
 @property (nonatomic, weak) IBOutlet UIImageView *thirdPhoto;
+
+@property (nonatomic, weak) NSString *currentUserId;
+@property (nonatomic, retain) Firebase *currentUser;
 
 -(IBAction)uploadPhoto:(id)sender;
 
