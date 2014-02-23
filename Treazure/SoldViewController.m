@@ -10,17 +10,35 @@
 
 @interface SoldViewController ()
 
+@property (nonatomic, retain) IBOutlet UITextField *activeField;
+
 @end
 
 @implementation SoldViewController
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self.view endEditing:YES];
+    [self.submitButtonS setEnabled:NO];
+    
+    [self.nameField setDelegate:self];
+    [self.phoneNumberField setDelegate:self];
+    [self.emailField setDelegate:self];
+    [self.passwordField setDelegate:self];
     
     self.ref = [[Firebase alloc] initWithUrl:@"https://joda.firebaseio.com/"];
+    self.users = [self.ref childByAppendingPath:@"users"];
     self.authClient = [[FirebaseSimpleLogin alloc] initWithRef:self.ref];
     
     // Check the user's current authentication status
@@ -32,13 +50,12 @@
             NSLog(@"No user logged in");
         } else {
             // There is a logged in user
+            self.currentUser = [self.users childByAppendingPath:user.userId];
             NSLog(@"already logged in user");
-            NSLog(@"%@, %d", user.userId, user.provider);
+            NSLog(@"%@, %d, %@", user.userId, user.provider, user.email);
+            
         }
     }];
-    
-    // Write data to Firebase
-    [self.ref setValue:@"Setting a value!"];
     
     // Read data and react to changes
     [self.ref observeEventType:FEventTypeValue
@@ -60,34 +77,44 @@
 
 -(IBAction)signUpUser:(id)sender
 {
-    [self.emailS resignFirstResponder];
-    [self.passwordS resignFirstResponder];
+    [self.emailField resignFirstResponder];
+    [self.passwordField resignFirstResponder];
     
-    NSLog(@"%lu", (unsigned long)[self.emailS.text length]);
-    NSLog(@"%lu", (unsigned long)[self.passwordS.text length]);
+    NSLog(@"%lu", (unsigned long)[self.emailField.text length]);
+    NSLog(@"%lu", (unsigned long)[self.passwordField.text length]);
 
     
-    if([self.emailS.text length] > 0 && [self.passwordS.text length] > 0)
+    if([self.emailField.text length] > 0 && [self.passwordField.text length] > 0 && [self.phoneNumberField.text length] > 0 )
     {
-        NSLog(@"%@", self.emailS.text);
-        NSLog(@"%@", self.passwordS.text);
+        NSLog(@"%@", self.emailField.text);
+        NSLog(@"%@", self.passwordField.text);
         
-        [self.authClient createUserWithEmail:self.emailS.text
-                                    password:self.passwordS.text
+        [self.authClient createUserWithEmail:self.emailField.text
+                                    password:self.passwordField.text
                           andCompletionBlock:^(NSError* error, FAUser* user) {
                               
                               if (error != nil) {
                                   // There was an error creating the account
                                   NSLog(@"%@", error);
+                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                  message:error.description
+                                                                                 delegate:nil
+                                                                        cancelButtonTitle:@"OK"
+                                                                        otherButtonTitles:nil];
+                                  [alert show];
                               } else {
                                   // We created a new user account
+                                  
+                                  // Write data to Firebase
+                                  self.currentUser = [self.users childByAppendingPath:user.userId];
+                                  [self.currentUser setValue:@{@"email":user.email, @"authToken":user.authToken, @"firstName":@"Shervin", @"lastName":@"Shaikh", @"phoneNumber":@9494194942}];
+                                  
                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sucessful!"
                                                                                   message:@"You have created an account sucessfully!"
                                                                                  delegate:nil
                                                                         cancelButtonTitle:@"OK"
                                                                         otherButtonTitles:nil];
                                   [alert show];
-                                  [self performSegueWithIdentifier:@"accessEverything" sender:self];
                               }
                           }];
     }
@@ -101,19 +128,24 @@
     // Check if text fields are empty
     if([self.email.text length] > 0 && [self.password.text length] > 0)
     {
-        NSLog(@"%@", self.email.text);
-        NSLog(@"%@", self.password.text);
-        
         [self.authClient loginWithEmail:self.email.text
                             andPassword:self.password.text
                     withCompletionBlock:^(NSError* error, FAUser* user) {
+                        NSLog(@"%@", user);
                         
                         if (error != nil) {
                             // There was an error logging in to this account
                             NSLog(@"%@", error);
+                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                            message:error.localizedDescription
+                                                                           delegate:nil
+                                                                  cancelButtonTitle:@"OK"
+                                                                  otherButtonTitles:nil];
+                            [alert show];
                         } else {
                             // We are now logged in
                             NSLog(@"Now logged in");
+                            self.currentUser = [self.users childByAppendingPath:user.userId];
                             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sucessful!"
                                                                             message:@"You have logged in sucessfully!"
                                                                            delegate:nil
@@ -124,6 +156,75 @@
                         }
                     }];
     }
+}
+
+#pragma mark - Phone Number Field Formatting
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    _activeField = nil;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if( [self.emailField.text length] != 0 && [self.passwordField.text length] != 0 && [self.phoneNumberField.text length] != 0 && [self.nameField.text length] != 0 && [self.nameField.text length] != 0)
+    {
+        [self.submitButtonS setEnabled:YES];
+    }
+    else {
+        [self.submitButtonS setEnabled:NO];
+    }
+    
+    _activeField = textField;
+    if (textField == self.phoneNumberField) {
+        NSInteger length = [self getLength:textField.text];
+        
+        if(length == 10) {
+            if(range.length == 0)
+                return NO;
+        }
+        
+        if(length == 3) {
+            NSString *num = [self formatNumber:textField.text];
+            textField.text = [NSString stringWithFormat:@"(%@) ",num];
+            if(range.length > 0)
+                textField.text = [NSString stringWithFormat:@"%@",[num substringToIndex:3]];
+        }
+        else if(length == 6) {
+            NSString *num = [self formatNumber:textField.text];
+            textField.text = [NSString stringWithFormat:@"(%@) %@-",[num  substringToIndex:3],[num substringFromIndex:3]];
+            if(range.length > 0)
+                textField.text = [NSString stringWithFormat:@"(%@) %@",[num substringToIndex:3],[num substringFromIndex:3]];
+        }
+    }
+    return YES;
+}
+
+-(NSString*)formatNumber:(NSString*)mobileNumber
+{
+    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@"(" withString:@""];
+    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@")" withString:@""];
+    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@" " withString:@""];
+    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@"+" withString:@""];
+    
+    NSInteger length = [mobileNumber length];
+    if(length > 10) {
+        mobileNumber = [mobileNumber substringFromIndex: length-10];
+    }
+    return mobileNumber;
+}
+
+
+-(NSInteger)getLength:(NSString*)mobileNumber
+{
+    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@"(" withString:@""];
+    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@")" withString:@""];
+    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@" " withString:@""];
+    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@"+" withString:@""];
+    
+    NSInteger length = [mobileNumber length];
+    return length;
 }
 
 @end
