@@ -122,6 +122,9 @@
                                                                                  delegate:nil
                                                                         cancelButtonTitle:@"OK"
                                                                         otherButtonTitles:nil];
+#warning Remove this line below and only move when loggin in
+                                  [self performSegueWithIdentifier:@"accessEverything" sender:self];
+                                  
                                   [alert show];
                               }
                           }];
